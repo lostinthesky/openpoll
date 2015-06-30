@@ -1,1 +1,1 @@
-Frontend application with AngularJs e rest services
+Frontend application with AngularJs and Rest Services
