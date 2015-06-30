@@ -1,0 +1,137 @@
+ <!--header class="page-header">
+    <div class="container">
+      <h4 class="title">Crea un nuovo sondaggio</h4>
+    </div>	
+  </header-->
+  
+  
+  <div class="container">  
+    <div class="row">
+
+<article class="content span12">
+	  <div class="row services">
+		<div class="span4 big-services-box">
+		  
+			<div class="big-icon bg"><i class="fa fa-gears"></i></div>
+			<h4 class="title">Crea</h4>
+			<div class="text-small">Compila la <strong>scheda qui sotto</strong>. Ti invitiamo a completare anche i campi opzionali che riteniamo molto importanti per rendere autorevole il sondaggio.</div>
+		  
+		</div>
+		<div class="span4 big-services-box">
+		  
+			<div class="big-icon bg"><i class="fa fa-bullseye"></i></div>
+			<h4 class="title">Conferma</h4>
+			<div class="text-small">Ti verr&agrave; spedita una email con un <strong>codice segreto</strong>, usalo per confermare il sondaggio e attendi l'email di approvazione. Da questo momento in poi il sondaggio &egrave; pubblico e pu&ograve; essere votato.</div>
+		  
+		</div>
+		<div class="span4 big-services-box">
+		  
+			<div class="big-icon bg"><i class="fa fa-users"></i></div>
+			<h4 class="title">Promuovi</h4>
+			<div class="text-small">Fai conoscere il tuo sondaggio invitando gli amici tramite email con l'apposito modulo che trovi quando visualizzi il sondaggio.</div>
+		  
+		</div>
+	  </div>
+</article>
+
+<br><br>
+	
+<article class="content span9">
+
+	  <div class="alert alert-success fade in"  ng-show="successmsgshow">
+		{{successmsg}}
+	  </div>
+	  
+	  <div class="alert alert-error fade in" ng-show="alertmsgshow">
+		{{alertmsg}}
+	  </div>	 
+	  
+	  
+	  
+		<form name="createForm" ng-submit="createPoll()" ng-controller="PollCreateCtrl" class="register-form contact-form" ng-show="showFormCreate" >
+		
+		  <div class="control-group" >
+			<label class="control-label" for="ownerEmail">EMAIL <span class="required">*</span></label>
+			  <input type="email" ng-model="$parent.ownerEmail" placeholder="Inserisci la tua email, non verra' mai visualizzata" style="width: 300px;" required >
+
+			  <label class="control-label" for="inputNickname" >NICKANME <span class="required">*</span></label>
+			
+			  <input type="text" ng-model="$parent.ownerNickname" placeholder="Nickname visualizzato al pubblico" style="width: 300px;" required>
+			
+
+			<label class="control-label" for="inputOwnerDescription">MI PRESENTO</label>
+
+			  <textarea rows="5" ng-model="$parent.ownerDescription" placeholder="Una tua breve descrizione"></textarea>
+			  <label class="control-label" for="pollTitle">TITOLO SONDAGGIO <span class="required">*</span></label>
+			  <textarea rows="5" ng-model="$parent.pollTitle" placeholder="Titolo del sondaggio (NO HTML)" required></textarea>
+			  <!--input type="text" ng-model="$parent.pollTitle" placeholder="Titolo del sondaggio" style="width: 500px;"required-->
+			  
+			  
+			<label class="control-label" for="pollDescription">DESCRIZIONE SONDAGGIO <span class="required">*</span></label>
+			
+
+		   <textarea rows="5" ng-model="$parent.pollDescription" placeholder="La descrizione del sondaggio" required></textarea>
+		   
+			<label class="control-label" for="pollValidoAl">VALIDO FINO AL <span class="required">*</span></label>
+
+			  <input type="text" ng-model="$parent.pollValidoAl" name="pollValidoAl" required  placeholder="gg/mm/aaaa" style="width: 80px;" ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[012])\/(20\d|[2-9]\d{3})$/">
+			      <span ng-show="createForm.pollValidoAl.$error.pattern" class="text-error">Data non corretta (es. 10/12/2015)</span>
+
+ 
+			<label class="control-label" for="pollCategoryID">CATEGORIA <span class="required">*</span></label><br>
+
+				<!--select ng-model="$parent.pollCategoryID" >
+				  <option  ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
+				</select-->
+		
+
+		<label class="radio" ng-repeat="category in categories">
+		  <input type="radio"  ng-model="$parent.pollCategoryID" value="{{category.id}}">{{category.name}}
+		</label>
+	    <br>
+			
+
+		  <label class="control-label" for="pollCategoryID">OPZIONI (min:2 max:10)</label>
+				<div class="controls" data-ng-repeat="choice in choices">
+					<input type="text" ng-model="choice.name" name="" placeholder="Opzione" style="width: 500px;"><br>
+					<div class="btn-group" data-toggle="buttons-radio" >
+						<span ng-show="showAddChoice(choice)" ng-click="addNewChoice()" class="btn btn-mini btn-info" > + </span>
+						<span ng-show="showAddChoice(choice)" ng-click="removeLastChoice()" class="btn btn-mini btn-danger" > -- </span>
+					</div>
+				</div>
+				
+
+		<br><br>
+
+			  <button type="submit"  class="btn btn-success">CREA</button>
+
+		  </div>
+		</form>
+
+	
+</article>		
+		
+      <div id="sidebar" class="sidebar span3">
+		<aside class="menu">
+		  <!--header>
+			<h3></h3>
+		  </header-->
+		   <br>
+		    <p class="muted">
+			Creare un sondaggio e' molto semplice.<br>
+			Come dati personali ti chiediamo solamente una tua <strong>email</strong> che non verra' mai resa pubblica.<br><br>
+			Scegli un <strong>nickname</strong> e scrivi una tua breve descrizione.<br><br>
+			La <strong>validit&agrave;</strong> indica la data entro la quale &egrave;  possibile votare.<br><br>
+			Le <strong>opzioni</strong> di risposta devono essere almeno due e masimo dieci. Usa i tasti + e - per aggiungere o togliere un'opzione<br><br>
+			</p>
+		</aside><!-- .menu-->
+	  </div><!-- .sidebar -->
+    </div>
+  </div><!-- .container -->
+
+  
+  
+  
+  
+  
+

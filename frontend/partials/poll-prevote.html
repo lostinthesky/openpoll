@@ -1,0 +1,84 @@
+ <header class="page-header">
+    <div class="container">
+      <h3 class="title">{{poll.title}}</h3>
+    </div>	
+  </header>
+  
+  
+  <div class="container">  
+    <div class="row">
+
+<article class="content span9">
+
+	  <div class="alert alert-success fade in"  ng-show="successmsgshow">
+		{{successmsg}}
+	  </div>
+	  
+	  <div class="alert alert-error fade in" ng-show="alertmsgshow">
+		{{alertmsg}}
+	  </div>	 
+	  
+	  <p ng-bind-html="poll.description"></p>
+	  
+		<form name="voteForm" ng-submit="submitVote()" ng-controller="PollVotazione" class="register-form contact-form">
+		  <fieldset>
+			<span ng-repeat="pollresponse in poll.pollResponse" >
+				<label class="radio">
+				  <input type="radio" ng-model="$parent.idRisposta" ng-value="{{pollresponse.pk.id}}" />
+				  {{pollresponse.text}}
+				</label>				 
+			</span>
+			<br><br>
+			<small><span class="muted"><em>Leggi a destra le istruzioni per recuperare il codice segreto e votare</em></span><br></small>
+			<input type="text" ng-model="$parent.secretToken" placeholder="Codice segreto" required />
+			<br>
+			<button type="submit" class="btn btn-success" >VOTA</button>
+		  </fieldset>
+		</form>
+
+		
+		<!--div class="span7 content-block bottom-padding frame frame-shadow-curved">
+		  <strong class="lead">Se non hai il codice segreto, inserisci qui sotto la tua email</strong>
+			<form  ng-submit="getToken()" ng-controller="PollVotazione" >
+			  <input class="input-block-level" type="email" ng-model="$parent.email" placeholder="Email" required>
+			  <button type="submit" class="btn btn-large btn-primary">Richiedi Codice</button>
+			</form>	
+			<span ng-show="msgtokenshow">{{msgtoken}}</span>
+		</div-->
+	
+</article>		
+		
+      <div id="sidebar" class="sidebar span3">
+		<aside class="list">
+
+		    <div class="icon icon-40 text-error"><i class="fa fa-bullhorn"></i></div><div class="icon icon-40 text-error">{{poll.totVote}}</div><br>
+			<div class="icon icon-40 text-success"><i class="fa fa-calendar"></i></div>&nbsp;<div class="icon icon-40 text-success">{{poll.creationDate | date:'dd.MM.yyyy'}}</div><br>
+			<div class="icon icon-40 text-success"><i class="fa fa-ban"></i></div>&nbsp;<div class="icon icon-40 text-success">{{poll.expirationDate | date:'dd.MM.yyyy'}}</div><br>
+			<div class="icon icon-40 text-info"><i class="fa fa-tag"></i></div>&nbsp;<a href="#!/category/{{poll.idCategory}}/0"><div class="icon icon-200 text-info"  ng-bind-html="poll.categoryName"></div></a><br>
+			<div class="icon icon-40 text-warning"><i class="fa fa-user"></i></div>&nbsp;<div class="icon icon-40 text-warning">{{poll.ownerNickname}}</div><br>
+			<p  class="text-warning" ng-bind-html="poll.ownerDescription"></p>
+		
+<br>
+		
+		<div class="content-block bottom-padding frame frame-shadow-curved">
+		  <strong class="lead">Se non hai il <STRONG>codice segreto</STRONG>, inserisci qui sotto la tua email e te ne spediremo uno.</strong>
+			<form  ng-submit="getToken()" ng-controller="PollVotazione" >
+			  <input class="input-block-level" type="email" ng-model="$parent.email" placeholder="Email" required>
+			  <button type="submit" class="btn btn-small btn-success">Richiedi Codice</button>
+			</form>	
+			<span class="muted" ng-show="msgtokenshow">{{msgtoken}}</span>
+		</div>	
+		
+		
+
+		</aside><!-- .list-->
+	  </div><!-- .sidebar -->
+    </div>
+  </div><!-- .container -->
+
+  
+  
+  
+  
+  
+

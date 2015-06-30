@@ -1,0 +1,110 @@
+
+  
+ <!--header class="page-header">
+    <div class="container">
+      	  <h1>Titolo</h1>
+    </div>	
+  </header-->
+
+  <div class="container">  
+
+	   
+
+
+	   <div class="bottom-padding">
+		<div class="title-box">
+		  <h2 class="title">I sondaggi pi&ugrave; votati</h2>
+		</div>
+		
+		<div class="steps">
+
+		  <div class="step border-text-info bg-text-info white">
+			<div class="title-box title-white">
+			  <h4 class="title">{{populars[0].title}}</h4>
+			</div>
+				<div class="icon icon-30 white"><i class="fa fa-bullhorn white"></i></div><div class="icon icon-30 white">{{populars[0].totVote}}</div>
+				<div class="icon icon-30 white"><i class="fa fa-tag white"></i></div><div class="icon icon-30 white">{{populars[0].categoryName}}</div>
+			<!--p>{{ populars[0].description | limitTo:80 }} </p-->
+			<br><p class="text-right"><a href="#!/poll/{{populars[0].id}}" class="btn btn-mini btn-white">partecipa</a></p>
+		  </div>
+
+		  <div class="step border-text-warning bg-text-warning white">
+			<div class="title-box t title-white">
+			  <h4 class="title">{{populars[1].title}}</h4>
+			</div>
+				<div class="icon icon-30 white"><i class="fa fa-bullhorn white"></i></div><div class="icon icon-30 white">{{populars[1].totVote}}</div>
+				<div class="icon icon-30 white"><i class="fa fa-tag white"></i></div>&nbsp;<div class="icon icon-30 white">{{populars[1].categoryName}}</div>
+			
+			<!--p>{{ populars[1].description | limitTo:80 }} </p-->
+
+			<br><p class="text-right"><a href="#!/poll/{{populars[1].id}}" class="btn btn-mini btn-white">partecipa</a></p>		
+		  </div>
+
+		  <div class="step border-text-success bg-text-success white">
+			<div class="title-box title-white">
+			 <h4 class="title">{{populars[2].title}}</h4>
+			</div>
+				<div class="icon icon-30 white"><i class="fa fa-bullhorn white"></i></div><div class="icon icon-30 white">{{populars[2].totVote}}</div>
+				<div class="icon icon-30 white"><i class="fa fa-tag white"></i></div>&nbsp;<div class="icon icon-30 white">{{populars[2].categoryName}}</div>
+			<!--p>{{ populars[2].description | limitTo:80 }} </p-->
+			<br><p class="text-right"><a href="#!/poll/{{populars[2].id}}" class="btn btn-mini btn-white">partecipa</a></p>
+		  </div>
+		  
+		</div>
+	  </div>
+	  
+	  <div class="ontent-block bottom-padding frame-shadow-lifted text-center">
+		<p class="lead"><h4>Benvenuto su <strong>openpoll.it</strong></h4>un sito aperto a tutti per poter scrivere e condividere <strong>sondaggi</strong>! E' semplice e veloce perche' non devi registrarti e <strong>completamente anonimo.</strong>
+			<br><strong>Partecipa</strong> subito e fai conoscere openpoll.it ai tuoi amici.<br><br>
+			<a href="#!/create" class="btn btn-small btn-primary" type="button">Crea subito il tuo sondaggio</a><br><br></p>
+	  </div>	  
+
+	
+		
+    <div class="row">
+	
+		
+       <article class="content span9">
+
+		<div class="content blog span9">
+		<span >
+			<article class="post" ng-repeat="poll in polls">
+				<span class="label label-danger"><i class="fa fa-bullhorn"></i>&nbsp;{{poll.totVote}}</span>&nbsp;&nbsp;<a href="#!/category/{{poll.idCategory}}/0"><span class="label" >{{poll.categoryName}}</span></a>
+				<h2 class="entry-title"><a href="#!/poll/{{poll.id}}">{{poll.title}}</a></h2>
+				<div class="entry-content">
+				<p ng-bind-html="poll.description"></p>
+				</div>
+				<footer class="entry-meta">
+					<span class="autor-name">Proposto da</span>&nbsp;<span class="text-warning">{{poll.ownerNickname}}</span>,
+					<span class="autor-name"> creato il</span>&nbsp;<span class="text-success">{{poll.creationDate | date:'dd.MM.yyyy'}}</span>,
+					<span class="autor-name"> puoi votare fino al</span>&nbsp;<span class="text-error">{{poll.expirationDate | date:'dd.MM.yyyy'}}</span>
+					<!--span class="time pull-right"-->
+						 <!--span class="text-success">{{poll.creationDate | date:'dd.MM.yyyy'}}</span> <i class="fa fa-arrow-right"></i> <span class="text-error">{{poll.expirationDate | date:'dd.MM.yyyy'}}&nbsp;&nbsp;&nbsp;</span-->
+				   <!--/span-->
+				</footer>
+			</article>
+			<center><button type="button" class="btn btn-link" ng-click="loadMore(moreIndex)"><i class="fa fa-arrows-v"></i>&nbsp;&nbsp;Carica altri sondaggi&nbsp;&nbsp;<i class="fa fa-arrows-v"></i></button></center>
+		</div>	
+ </article>		
+
+		
+		
+	
+      <div id="sidebar" class="sidebar span3">
+
+		<aside class="menu">
+		  <header>
+			<h3>Categorie</h3>
+		  </header>
+		  <nav>
+			<ul>
+				<li ng-repeat="category in categories"><a href="#!/category/{{category.id}}/0">{{category.name}}</a></li>
+			 </ul>
+		  </nav>
+		</aside><!-- .menu-->		
+		  
+
+	  </div><!-- .sidebar -->
+    </div>
+  </div><!-- .container -->
+  

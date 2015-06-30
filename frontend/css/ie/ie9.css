@@ -1,0 +1,7 @@
+.rotation .product-hover,
+.rotation .employee-hover {
+  display: none;
+}
+.manufactures .make {
+  display: block;
+}

@@ -1,0 +1,54 @@
+ <header class="page-header">
+    <div class="container">
+      <h1 class="title">{{poll.title}}</h1>
+    </div>	
+  </header>
+  
+  
+  <div class="container">  
+    <div class="row">
+
+<article class="content span9">
+
+	  <div class="alert alert-success fade in"  ng-show="successmsgshow">
+		{{successmsg}}
+	  </div>
+	  
+	  <div class="alert alert-error fade in" ng-show="alertmsgshow">
+		{{alertmsg}}
+	  </div>
+	  
+		<form name="confirmForm" ng-submit="confirmPoll()" ng-controller="PollConfirmCtrl" class="register-form contact-form">
+		  <fieldset>
+			<p ng-bind-html="poll.description"></p>
+			
+			<ol>
+				  <li ng-repeat="pollresponse in poll.pollResponse">{{pollresponse.text}}</li>				 
+			</ol>
+			<br><br>
+			<input type="text" ng-model="$parent.secretToken" placeholder="Codice segreto" required />
+			<br>
+			<button type="submit" class="btn btn-success" >CONFERMA</button>
+		  </fieldset>
+		</form>		
+		
+		
+</article>		
+		
+      <div id="sidebar" class="sidebar span3">
+		<aside class="list">
+
+		  <!--header>
+			<h3>Dettagli</h3>
+		  </header-->
+
+			<div class="icon icon-40 text-success"><i class="fa fa-calendar"></i></div>&nbsp;<div class="icon icon-40 text-success">{{poll.creationDate | date:'dd.MM.yyyy'}}</div><br>
+			<div class="icon icon-40 text-success"><i class="fa fa-ban"></i></div>&nbsp;<div class="icon icon-40 text-success">{{poll.expirationDate | date:'dd.MM.yyyy'}}</div><br>
+			<div class="icon icon-40 text-info"><i class="fa fa-tag"></i></div>&nbsp;<a href="#!/category/{{poll.idCategory}}/0"><div class="icon icon-200 text-info"  ng-bind-html="poll.categoryName"></div></a><br>
+			<div class="icon icon-40 text-warning"><i class="fa fa-user"></i></div>&nbsp;<div class="icon icon-40 text-warning">{{poll.ownerNickname}}</div><br>
+			<p  class="text-warning" ng-bind-html="poll.ownerDescription"></p>
+
+		</aside><!-- .list-->
+	  </div><!-- .sidebar -->
+    </div>
+  </div><!-- .container -->

@@ -1,0 +1,43 @@
+
+  
+ <header class="page-header">
+    <div class="container">
+      	  <h4>Includi OpenPoll nel tuo sito</h4>
+    </div>	
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="content span12">
+
+
+		<p>
+			Per includere il sondaggio nel tuo sito copia il codice che trovi nella sidebar a destra quando visualizzi il sondaggio e incollalo nel tuo sito.
+		</p>
+		<p>
+		<h6>Esempio</h6>
+		<textarea><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>$.get( "http://www.openpoll.it/ws/poll/badge/{{poll.id}}/1/F89406", function( data ) {$( "#openpollbadge" ).html( data );});</script><div id="openpollbadge" style="width:100%"></div></textarea>
+		</p>
+		<p>
+		 <h6>Personalizzazione colore</h6>
+		Nello script trovi un url simile a questo<br>
+		<i>http://www.openpoll.it/ws/poll/badge/49/1/<strong>F89406</strong></i><br>
+		Il parametro in grassetto (<strong>F89406</strong>) indica il colore esadecimale, sostituiscilo con il colore che preferisci
+		</p>
+		 
+		 <p>
+		 <h6>Personalizzazione logo</h6>
+		Nello script trovi un url simile a questo<br>
+		<i>http://www.openpoll.it/ws/poll/badge/49/<strong>1</strong>/F89406</i><br>
+		Il parametro in grassetto (<strong>1</strong>) indica se visualizzare il logo di openpoll<br>
+		<strong>1</strong>: visualizza il logo<br>
+		<strong>0</strong>: non visualizzare il logo
+		 
+		</p>
+
+	  
+	  
+      </div><!-- .content -->
+    </div>
+  </div><!-- .container -->
+  

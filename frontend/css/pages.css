@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+.bg-image.band-1 {
+  background-image: url('../img/content/band-1.jpg');
+}
+.bg-image.band-2 {
+  background-image: url('../img/content/band-2.jpg');
+}
+.bg-image.band-3 {
+  background-image: url('../img/content/band-3.jpg');
+}
+.bg-image.band-4 {
+  background-image: url('../img/content/band-4.jpg');
+}
+.bg-image.band-5 {
+  background-image: url('../img/content/band-5.jpg');
+}
+.bg-image.band-6 {
+  background-image: url('../img/content/band-6.jpg');
+}
+.bg-image.band-7 {
+  background-image: url('../img/content/band-7.jpg');
+}
+.bg-image.band-8 {
+  background-image: url('../img/content/band-8.jpg');
+}
+.bg-image.band-9 {
+  background-image: url('../img/content/band-9.jpg');
+}
+.bg-image.band-10 {
+  background-image: url('../img/content/band-10.jpg');
+}
+.bg-image.band-11 {
+  background-image: url('../img/content/band-11.jpg');
+}
+.bg-image.band-12 {
+  background-image: url('../img/content/band-12.jpg');
+}
+.bg-image.band-13 {
+  background-image: url('../img/content/band-13.jpg');
+}
+.bg-image.band-14 {
+  background-image: url('../img/content/band-14.jpg');
+}
+.bg-image.band-15 {
+  background-image: url('../img/content/band-15.jpg');
+}
+.bg-image.band-16 {
+  background-image: url('../img/content/band-16.jpg');
+}
+.bg-image.band-17 {
+  background-image: url('../img/content/band-17.jpg');
+}
+.full-width-box > .band-19 .overlay {
+  opacity: .02;
+  filter: alpha(opacity=2);
+}
+.bg.bg-video {
+  background-image: url('../img/content/video-poster.jpg');
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+.overlay.zero {
+  opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
+}
+.overlay.overlay-100 {
+  opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+.background-red {
+  background-color: #c10841 !important;
+}
+.background-green {
+  background-color: #84a200 !important;
+}
+.livicons-content .well {
+  padding: 10px;
+  text-align: center;
+}
+.livicons-content .well .unstyled {
+  margin-bottom: 0;
+}
+#liviconslist .icon {
+  float: left;
+  margin: 0 20px 20px 0;
+  padding: 12px 12px;
+  border: 1px solid #d4d4d4;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+#liviconslist .icon {
+  height: auto;
+  width: auto;
+}
+#liviconslist .icon .livicon svg {
+  top: 0 !important;
+}
+#bg-steps-apart1 {
+  background-image: url('../img/content/portfolio-2.jpg');
+}
+#bg-steps-apart2 {
+  background-image: url('../img/content/portfolio-3.jpg');
+}
+#bg-steps-apart3 {
+  background-image: url('../img/content/portfolio-4.jpg');
+}
+@media (max-width: 979px) {
+  .full-width-box .services.row {
+    margin-left: 0;
+  }
+  .full-width-box .services.row > .span3 {
+    margin-left: 0;
+    width: 100%;
+  }
+}

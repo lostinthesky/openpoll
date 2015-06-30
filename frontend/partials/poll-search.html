@@ -1,0 +1,57 @@
+
+  
+ <header class="page-header">
+    <div class="container">
+      	  <h4>Hai cercato: '{{searchString}}'</h4>
+    </div>	
+  </header>
+
+  <div class="container">  
+
+	
+     <div class="row">
+       <article class="content span9">
+
+		<div class="content blog span9">
+		<span >
+			<article class="post" ng-repeat="poll in polls">
+				<span class="label label-danger"><i class="fa fa-bullhorn"></i> {{poll.totVote}}</span>&nbsp;&nbsp;<a href="#!/category/{{poll.idCategory}}/0"><span class="label" >{{poll.categoryName}}</span></a>
+				<h2 class="entry-title"><a href="#!/poll/{{poll.id}}">{{poll.title}}</a></h2>
+				<div class="entry-content">
+					{{poll.description}}
+				</div>
+				<footer class="entry-meta">
+					<span class="autor-name">Proposto da</span>&nbsp;<span class="text-warning">{{poll.ownerNickname}}</span>,
+					<span class="autor-name"> creato il</span>&nbsp;<span class="text-success">{{poll.creationDate | date:'dd.MM.yyyy'}}</span>,
+					<span class="autor-name"> puoi votare fino al</span>&nbsp;<span class="text-error">{{poll.expirationDate | date:'dd.MM.yyyy'}}</span>
+					<!--span class="time pull-right"-->
+						 <!--span class="text-success">{{poll.creationDate | date:'dd.MM.yyyy'}}</span> <i class="fa fa-arrow-right"></i> <span class="text-error">{{poll.expirationDate | date:'dd.MM.yyyy'}}&nbsp;&nbsp;&nbsp;</span-->
+				   <!--/span-->
+				</footer>
+			</article>
+			<center><button type="button" class="btn btn-link" ng-click="loadMore(moreIndex)"><i class="fa fa-arrows-v"></i>&nbsp;&nbsp;Carica altri sondaggi&nbsp;&nbsp;<i class="fa fa-arrows-v"></i></button></center>
+		</div>	
+ </article>		
+
+		
+		
+		
+	
+      <div id="sidebar" class="sidebar span3">
+
+		<aside class="menu">
+		  <header>
+			<h3>Categorie</h3>
+		  </header>
+		  <nav>
+			<ul>
+				<li ng-repeat="category in categories"><a href="#!/category/{{category.id}}/0">{{category.name}}</a></li>
+			 </ul>
+		  </nav>
+		</aside><!-- .menu-->		
+	  </div><!-- .sidebar -->
+	  
+	  
+    </div>
+  </div><!-- .container -->
+  

@@ -1,0 +1,41 @@
+<section id="content" class="container clearfix">
+
+	<header class="page-header">
+
+		<!--h1 class="page-title">We are hiring</h1-->
+
+		<hr />
+
+		<h2 class="page-description">{{poll.title}}</h2>
+		
+	</header><!-- end .page-header -->
+	
+	<div class="three-fourth">
+
+
+		<p>{{poll.description}}</p>
+
+
+		<ul class="arrow dotted">
+		   <li ng-repeat="pollresponse in poll.pollResponse" >
+			<h4>{{pollresponse.text}}</h4>
+		  </li>
+		  
+		</ul>
+		
+		
+	</div><!-- end .three-fourth -->
+
+	<div class="one-fourth last">
+
+		<h4>Bla!</h4>
+
+		<p>Not a problem! Contact us to let us know how you can make a difference at SmartStart.</p>
+
+		<h4>
+			<em><a href="contact-us.html" class="button no-bg">Drop us a line <span class="arrow">&raquo;</span></a></em>
+		</h4>
+		
+	</div><!-- end .one-fourth.last -->
+	
+</section><!-- end #content -->

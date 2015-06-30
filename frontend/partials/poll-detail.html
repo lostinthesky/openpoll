@@ -1,0 +1,104 @@
+
+ <header class="page-header">
+    <div class="container">
+      <h3 class="title">{{poll.title}}</h3>
+    </div>	
+  </header>
+  
+
+  
+  <div class="container">  
+    <div class="row">
+
+<article class="content span9">
+
+		<p  ng-bind-html="poll.description"></p>
+
+			<br>
+			
+		   <span ng-repeat="pollresponse in poll.pollResponse" >
+				<h5>{{pollresponse.text}}</h5>
+				<div class="progress progress-warning">
+					<div class="bar" style="width: {{pollresponse.percentuale | number:2}}%;">{{pollresponse.percentuale | number:2}}%&nbsp;&nbsp;&nbsp;voti:&nbsp;{{pollresponse.count}}</div>
+				</div>
+			</span>
+		
+</article>		
+		
+		
+		
+	
+      <div id="sidebar" class="sidebar span3">
+		<aside class="list">
+		
+		<a href="#!/prevote/{{poll.id}}" class="btn btn-large btn-primary">VOTA</a>
+		<br><br>
+		
+		  <!--header>
+			<h3>Dettagli</h3>
+		  </header-->
+
+		    <div class="icon icon-40 text-error"><i class="fa fa-bullhorn"></i></div><div class="icon icon-40 text-error">{{poll.totVote}}</div><br>
+			<div class="icon icon-40 text-success"><i class="fa fa-calendar"></i></div>&nbsp;<div class="icon icon-40 text-success">{{poll.creationDate | date:'dd.MM.yyyy'}}</div><br>
+			<div class="icon icon-40 text-success"><i class="fa fa-ban"></i></div>&nbsp;<div class="icon icon-40 text-success">{{poll.expirationDate | date:'dd.MM.yyyy'}}</div><br>
+			<div class="icon icon-40 text-info"><i class="fa fa-tag"></i></div>&nbsp;<a href="#/category/{{poll.idCategory}}/0"><div class="icon icon-200 text-info"  ng-bind-html="poll.categoryName"></div></a><br>
+			<div class="icon icon-40 text-warning"><i class="fa fa-user"></i></div>&nbsp;<div class="icon icon-40 text-warning">{{poll.ownerNickname}}</div><br>
+			<p  class="text-warning" ng-bind-html="poll.ownerDescription"></p>
+			
+			
+
+			
+			
+		<div class="title-box">
+			<h2 class="title">Condividi sui social network</h2>
+		</div>
+		<div class="icon icon-60 bg">
+				<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.openpoll.it%2F%23!%2Fpoll%2F{{poll.id}}%26t={{poll.title}}" target="_blank"><i class="fa fa-facebook"></i></a>
+		</div>		
+		<div class="icon icon-60 bg">
+				<a href="https://twitter.com/intent/tweet?button_hashtag=OpenPollIT&text=http%3A%2F%2Fwww.openpoll.it%2F%23!%2Fpoll%2F{{poll.id}}"><i class="fa fa-twitter"></i></a>
+		</div>
+		
+		<div class="icon icon-60 bg">
+				<a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.openpoll.it%2F%23!%2Fpoll%2F{{poll.id}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-google-plus"></i></a>
+		</div>		
+		
+		
+		<div class="title-box">
+			<h2 class="title">Invita un amico</h2>
+		</div>		
+
+			<div class="content-block bottom-padding frame frame-shadow-curved">
+			  <!--strong class="lead">Invita un <STRONG>amico</STRONG> a votare per questo sondaggio</strong-->
+				<form  ng-submit="inviteFriend()" ng-controller="PollDetailCtrl" >
+				  <input class="input-block-level" type="email" ng-model="$parent.friendEmail" placeholder="Email" required>
+				  <button type="submit" class="btn btn-small btn-success">Invita</button>
+				</form>	
+				<span class="text-success" ng-show="msginvitefriendshow" >{{msgInviteFriend}}</span>
+			</div>
+			
+		<div class="title-box">
+			<h2 class="title">Inserisci il sondaggio nel tuo sito</h2>
+		</div>			
+			<textarea><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script>$.get( "http://www.openpoll.it/ws/poll/badge/{{poll.id}}/1/F89406", function( data ) {$( "#openpollbadge" ).html( data );});</script><div id="openpollbadge" style="width:100%"></div></textarea>
+
+			
+	 
+		</aside><!-- .list-->
+	  </div><!-- .sidebar -->
+    </div>
+  </div><!-- .container -->
+
+  
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/it_IT/all.js#xfbml=1&appId=785542244799051";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  
+  
+  
+
